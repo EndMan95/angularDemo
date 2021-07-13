@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>AngularJS</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+       
+      <script th:src="@{/main.js}"></script>
+      <link th:href="@{/main.css}" rel="stylesheet" />
+       
+      <head>
+   <body ng-app="HumanManagement" ng-controller="HumanController">
+      <h3>
+         CRUD: Spring Boot + Rest + AngularJS
+      </h3>
+      <form ng-submit="submitHuman()">
+         <table border="0">
+            <tr>
+               <td>Human Id</td>
+               <td>{{humanForm.humanId}}</td>
+            </tr>
+            <tr>
+               <td>Name</td>
+               <td><input type="text" ng-model="humanForm.name" /></td>
+            </tr>
+
+            <tr>
+               <td>Sex</td>
+               <td><input type="text" ng-model="humanForm.sex" /></td>
+            </tr>
+            
+            <tr>
+               <td colspan="2">
+                  <input type="submit" value="Submit" class="blue-button" />
+               </td>
+            </tr>
+         </table>
+      </form>
+      <br/>
+      <a class="create-button" ng-click="createHuman()">Create Human</a>
+      <table border="1">
+         <tr>
+            <th>Human Id</th>
+            <th>Name</th>
+            <th>Sex</th>
+            <th>Edit</th>
+            <th>Delete</th>
+         </tr>
+         <!-- $scope.humans -->
+         <tr ng-repeat="human in humans">
+            <td> {{ human.huamnId }}</td>
+            <td> {{ human.name }}</td>
+            <td >{{ human.sex?"nam":"nu" }}</td>
+            <td>
+            <a ng-click="editHuman(human)" class="edit-button">Edit</a>
+            </td>
+            <td>
+            <a ng-click="deleteHuman(human)" class="delete-button">Delete</a>
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>
