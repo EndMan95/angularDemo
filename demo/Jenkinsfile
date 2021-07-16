@@ -1,0 +1,10 @@
+pipeline {
+	agent any
+	stages {
+		stage('first_stage') {
+			steps {
+				git 'https://github.com/EndMan95/angularDemo.git'
+			}
+		}
+	}
+}
