@@ -1,5 +1,5 @@
 FROM openjdk:8
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
-RUN javac DemoApplicationTests.java
-CMD ["java", "DemoApplicationTests"]
+RUN javac /src/main/java/angular/demoDemoApplicationTests.java
+CMD ["java", "/src/main/java/angular/DemoApplicationTests"]
